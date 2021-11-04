@@ -21,11 +21,9 @@ func NewHandler(locationService *service.Location) http.Handler {
 	router.HandleFunc("/location/{order_id}/now", reportHandler.AddLocation).Methods(http.MethodPost).
 		HeadersRegexp("Content-Type", "application/json")
 
-	router.HandleFunc("/location/{order_id}", reportHandler.GetLocation).Methods(http.MethodGet).
-		HeadersRegexp("Content-Type", "application/json")
+	router.HandleFunc("/location/{order_id}", reportHandler.GetLocation).Methods(http.MethodGet)
 
-	router.HandleFunc("/location/{order_id}", reportHandler.DeleteLocation).Methods(http.MethodDelete).
-		HeadersRegexp("Content-Type", "application/json")
+	router.HandleFunc("/location/{order_id}", reportHandler.DeleteLocation).Methods(http.MethodDelete)
 
 	return router
 }

@@ -78,7 +78,10 @@ func (h *ReportHandler) GetLocation(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	respondWithJSON(w, http.StatusOK, response)
+	respondWithJSON(w, http.StatusOK, LocationPayload{
+		OrderId: orderId,
+		History: response,
+	})
 }
 
 func (h *ReportHandler) DeleteLocation(w http.ResponseWriter, r *http.Request) {

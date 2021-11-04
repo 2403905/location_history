@@ -29,12 +29,15 @@ func (s *Location) GetLocation(orderId string, max int) ([]model.Location, error
 	if err != nil {
 		return nil, err
 	}
-	if max == 0 {
+	if max == 0 || max > len(locationList) {
 		max = len(locationList)
 	}
 	res := make([]model.Location, 0, max)
-	for i := len(locationList); i > max; i-- {
+	for i := range locationList{
 		res = append(res, locationList[i])
+		if len(res) >= max {
+			break
+		}
 	}
 	return res, err
 }

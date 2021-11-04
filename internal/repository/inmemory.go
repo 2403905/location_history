@@ -9,7 +9,7 @@ import (
 	"github.com/2403905/location_history/internal/model"
 )
 
-var dTTL = 60 * time.Second
+var dTTL = 600 * time.Second
 
 type Repo struct {
 	storage *cache.Cache
@@ -17,7 +17,7 @@ type Repo struct {
 
 func NewRepo() Repo {
 	return Repo{
-		storage: cache.New(60*time.Second, 5*time.Minute),
+		storage: cache.New(600*time.Second, 5*time.Minute),
 	}
 }
 

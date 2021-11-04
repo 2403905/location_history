@@ -1,5 +1,7 @@
 # Location History Server
 
+How to run: Call the `make run` command.
+
 Clients able to speak JSON over HTTP to the server. There are three endpoints supported:
 * `POST /location/{order_id}/now`
 * `GET /location/{order_id}?max=<N>`
